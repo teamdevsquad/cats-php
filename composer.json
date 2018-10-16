@@ -1,7 +1,7 @@
 {
   "name": "teamdevsquad/cats-php",
   "type": "library",
-  "description": "CATS API v3 client",
+  "description": "CATS API v3 PHP client",
   "homepage": "https://github.com/teamdevsquad/cats-php",
   "keywords": [
     "cats",
