@@ -1,0 +1,45 @@
+{
+  "name": "teamdevsquad/cats-php",
+  "type": "library",
+  "description": "CATS API v3 client",
+  "homepage": "https://github.com/teamdevsquad/cats-php",
+  "keywords": [
+    "cats",
+    "api"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Team DevSquad",
+      "email": "team@devsquad.com",
+      "homepage": "http://devsquad.com"
+    }
+  ],
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cats\\": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cats\\Tests\\": "test/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
