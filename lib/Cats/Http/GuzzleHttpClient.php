@@ -1,29 +1,28 @@
 <?php
 
-namespace Cats;
+namespace Cats\Http;
 
-use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Client as BaseGuzzleHttpClient;
 
-abstract class Client
+class GuzzleHttpClient implements HttpClient
 {
-    const BASE_V3_URL = 'https://api.catsone.nl/v3';
 
-    /** @var HttpClient */
-    protected $httpClient;
+    /** @var BaseGuzzleHttpClient */
+    private $httpClient;
 
     private $token;
 
-    public function __construct()
+    /**
+     * @param string $token
+     */
+    public function __construct($token)
     {
-        $this->httpClient = new HttpClient([
+        $this->httpClient = new BaseGuzzleHttpClient([
             'base_uri' => self::BASE_V3_URL,
         ]);
+        $this->token      = $token;
     }
 
-    public static function setup($token)
-    {
-
-    }
 
     private function getHeader()
     {
@@ -34,7 +33,7 @@ abstract class Client
         ];
     }
 
-    protected function get($uri)
+    public function get($uri)
     {
         $response = $this->httpClient->get($uri, [
             'headers' => $this->getHeader(),
@@ -42,15 +41,5 @@ abstract class Client
 
         $raw = $response->getBody()->getContents();
         return json_decode($raw, true);
-    }
-
-    protected function post()
-    {
-
-    }
-
-    protected function put()
-    {
-
     }
 }
